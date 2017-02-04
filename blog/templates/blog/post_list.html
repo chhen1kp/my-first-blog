@@ -1,19 +1,14 @@
-<html>
-    <head>
-        <title> Django Girls blog </title>
-    </head>
-    <body>
-      <div>
-        <h1><a href="">Django Girls Blog</a></h1>
-      </div>
-      <div>
-        <h2><a href=""> Things I like</a></h2>
-        <p>I like programming!</p>
-      </div>
-      <div>
-        <p>published:2.4.17 </p>
-        <h2><a  href=""> My second post </a> </h2>
-        <p>No idea what this says right now<p>
+<header> Django Girls </header>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
     </div>
-  </body>
-</html>
+{% endfor %}
